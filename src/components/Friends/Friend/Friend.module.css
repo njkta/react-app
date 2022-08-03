@@ -1,0 +1,9 @@
+.friend{
+    text-align: center;
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin: 5px 0 15px;
+}
+.name{
+    font-size: 12px;
+}

@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+}
+
+.app-wr{
+  display: grid;
+
+  grid-template-areas:
+          'header header'
+          'nav content';
+
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /*grid-gap: 10px;*/
+
+}
+
+.app-wr-content{
+  grid-area: content;
+  background: #fff;
+  max-width: 100%;
+}
+.container{
+  padding: 0 20px;
+}
+
+
+.img.avatar{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}

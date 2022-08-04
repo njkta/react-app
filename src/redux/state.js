@@ -1,3 +1,7 @@
+let rerenderEntireTree = () => {
+    console.log('reload!')
+}
+
 let state = {
     profile: {
         postsData: [
@@ -5,6 +9,7 @@ let state = {
             {id: 2,message: 'asd', likeCount: 6},
             {id: 3,message: 'zxc', likeCount: 11}
         ],
+        newPostText: 'type here...',
     },
     dialogs: {
         userData: [
@@ -34,5 +39,28 @@ let state = {
         ],
     },
 }
+
+const addPost = () => {
+    let newPost = {
+        id: 4,
+        message: state.profile.newPostText,
+        likeCount: 0
+    }
+    state.profile.postsData.push(newPost)
+    state.profile.newPostText = ''
+
+    rerenderEntireTree(state);
+}
+
+const updatePostText = (newText) => {
+    state.profile.newPostText = newText
+    rerenderEntireTree(state);
+}
+
+const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
+
+export {addPost, updatePostText, subscribe}
 
 export default state;

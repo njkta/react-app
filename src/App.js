@@ -19,7 +19,11 @@ const App = (props) => {
                 <div className='app-wr-content'>
                     <Routes>
                         <Route path='/profile'
-                               element={<Profile profile={props.state.profile} />}
+                               element={<Profile
+                                   profile={props.state.profile}
+                                   addPost={props.addPost}
+                                   updatePostText={props.updatePostText}
+                               />}
                         />
                         <Route path='/dialogs'
                                element={<Dialogs dialogs={props.state.dialogs} />}

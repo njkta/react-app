@@ -34,3 +34,26 @@ body{
   object-fit: cover;
   border-radius: 50%;
 }
+
+.textarea {
+  width: 100%;
+  min-width: 500px;
+  min-height: 80px;
+  border-radius: 3px;
+  border-color: #c0c0c0;
+  outline: none;
+  box-shadow: none;
+  padding: 8px;
+  font-size: 14px;
+}
+.btn{
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 15px 10px;
+  margin: 10px 0;
+  color: #fff;
+  background: #ff2c55;
+  border: none;
+  border-radius: 3px;
+}

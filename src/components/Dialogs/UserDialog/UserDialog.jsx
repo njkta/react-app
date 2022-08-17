@@ -4,7 +4,8 @@ import '../../../App.css'
 import {NavLink} from "react-router-dom";
 
 const UserDialog = (props) => {
-    let path = `/dialogs/${props.id}`;
+    let path = `/dialogs/${props.id}/`;
+    console.log(props.id)
     return (
         <div className={`${style.userDialog} ${style.active}`}>
             <img className='img avatar' src={props.avatar}/>

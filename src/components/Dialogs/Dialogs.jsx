@@ -2,22 +2,27 @@ import React from "react";
 import style from './Dialogs.module.css'
 import UserDialog from "./UserDialog/UserDialog";
 import Message from "./Message/Message";
+import {sendMessageActionCreator, updateMessageDataActionCreator} from '../../redux/dialogs-reducer'
 
 const Dialogs = (props) => {
 
-    let userElements = props.dialogs.userData.map((el) =>
+    let state = props.dialogs
+
+    let userElements = state.userData.map((el) =>
         <UserDialog name={el.name} id={el.id} avatar={el.avatar} key={el.id} />
     )
 
-    let messageElement = props.dialogs.messagesData.map((el) =>
+    let messageElement = state.messagesData.map((el) =>
         <Message message={el.message} key={el.id} />
     )
 
-    let newMessage = React.createRef();
+    let onMessageChange = (event) => {
+        let messageData = event.target.value
+        props.updateMessageData(messageData)
+    }
 
     let sentMessage = () => {
-        let text = newMessage.current.value;
-        alert(text);
+        props.sentMessage()
     }
 
     return (
@@ -29,7 +34,7 @@ const Dialogs = (props) => {
                 {messageElement}
                 <form className='writeForm'>
                     <div>
-                        <textarea className='textarea' ref={newMessage}></textarea>
+                        <textarea className='textarea' onChange={onMessageChange} value={state.newMessageData}></textarea>
                     </div>
                     <div>
                         <button className='btn' type='button' onClick={ sentMessage }>sent</button>
